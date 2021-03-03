@@ -1,10 +1,13 @@
 """
     Author: Kelvin Tsang
+    Github: https://github.com/Kelviiiin/DCT_Basis_Image
 
+    Creates the basis images of discrete cosine tranformation.
+    https://upload.wikimedia.org/wikipedia/commons/2/23/Dctjpeg.png
 """
 
 import os
-from math import cos, sqrt, pi
+from math import cos, pi
 import cv2
 import numpy as np
 
@@ -12,6 +15,7 @@ class DCT_Basis_Image:
     def __init__(self):
         # size of the square image 8x8
         self.size = 8
+        # folder name where the images are saved
         self.folderName = "BasisImage"
 
     def create(self):
@@ -26,13 +30,14 @@ class DCT_Basis_Image:
         if (not os.path.isdir(self.folderName)):
             os.makedirs(self.folderName)
 
+        # name of the images are numbered consecutively
         for i in range(0, len(imageSet)):
             number = None
             if(i < 10):
                 number = "0" + str(i)
             else:
                 number = str(i)
-            # Image directory
+            # image directory
             directory = 'BasisImage/' + number + '.png'
             # save images with cv2
             cv2.imwrite(directory, imageSet[i])
