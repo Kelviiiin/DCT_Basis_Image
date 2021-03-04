@@ -59,9 +59,9 @@ class DCT_Basis_Image:
                 basisImg[y, x] = self.cosValueToGrayValue(self.dct(x, y, u, v, self.size))
         return basisImg
 
-
-basisImage = DCT_Basis_Image()
-basisImage.create()
+if __name__ == "__main__":
+    basisImage = DCT_Basis_Image()
+    basisImage.create()
 
 
 
